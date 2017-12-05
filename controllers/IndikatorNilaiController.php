@@ -34,7 +34,7 @@ class IndikatorNilaiController extends Controller {
      */
     public function actionIndex() {
         $idFB=Yii::$app->session['idFB'];
-        $this->layout = 'mainEntri';
+
         $searchModel = new IndikatorNilaiSearch();
         $dataProviderPelayanan = $searchModel->searchPelayanan(Yii::$app->request->queryParams);
         $dataProviderIntegritas = $searchModel->searchIntegritas(Yii::$app->request->queryParams);

@@ -6,7 +6,7 @@ use yii\web\View;
 
 /* @var $this View */
 
-$this->title = 'SKP SMPN 8 TANJUNGPINANG';
+$this->title = 'SMAN 1 SINGKEP BARAT';
 ?>
 <div class="site-index">
 

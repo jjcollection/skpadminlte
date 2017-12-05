@@ -16,15 +16,18 @@ use yii\widgets\ActiveForm;
     ]); ?>
         <?= $form->field($model, 'tanggalBuat')->widget(DatePicker::className(),[
             'name' => 'pilih tanggal', 
+            
             'value' => date('Y-M-d', strtotime('+2 days')),
             'options' => 
             [
                 'placeholder' => 'Pilih Tanggal ...',
+                 'style'=>'width:300px',
             ],
             'pluginOptions' => 
             [
                 'format' => 'yyyy-m-d',
-                'todayHighlight' => true
+                'todayHighlight' => true,
+               
             ]
         ]);
         ?>

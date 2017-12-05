@@ -86,10 +86,8 @@ class FormulirController extends Controller {
                 $model->jenisForm = 'FG';
                 $model->save();
                 FormulirMaster::akrata(Yii::$app->session['idFB'], 'FG');
-                $this->layout = "mainEntri";
                 return $this->redirect('create');
             } else {
-                $this->layout = "mainEntri";
                 return $this->render('create', [
                             'model' => $model,
                             'modelUser' => $modelUser,
@@ -113,7 +111,6 @@ class FormulirController extends Controller {
             $model->idFormulirMaster = Yii::$app->session['idFB'];
             $model->jenisForm = 'FK';
             $model->save();
-            $this->layout = "mainEntri";
             return $this->render('createold', [
                         'model' => $model,
                         'modelUser' => $modelUser,
@@ -123,7 +120,6 @@ class FormulirController extends Controller {
                         'formulirPenunjang' => $formulirPenunjang,
             ]);
         } else {
-            $this->layout = "mainEntri";
             return $this->render('createold', [
                         'model' => $model,
                         'modelUser' => $modelUser,
@@ -147,7 +143,6 @@ class FormulirController extends Controller {
             $model->idFormulirMaster = Yii::$app->session['idFB'];
             $model->jenisForm = 'FK';
             $model->save();
-            $this->layout = "mainEntri";
             return $this->render('createold', [
                         'model' => $model,
                         'modelUser' => $modelUser,
@@ -157,7 +152,6 @@ class FormulirController extends Controller {
                         'formulirPenunjang' => $formulirPenunjang,
             ]);
         } else {
-            $this->layout = "mainEntri";
             return $this->render('createold', [
                         'model' => $model,
                         'modelUser' => $modelUser,
@@ -221,7 +215,6 @@ class FormulirController extends Controller {
                                 ]
                         )
                         ->execute();
-                $this->layout = "mainEntri";
                 return $this->redirect(['createold', 'id' => $idfb]);
             } else {
                 $model = $this->findModel($id);
@@ -233,10 +226,9 @@ class FormulirController extends Controller {
                     $model->jenisForm = 'FG';
                     $model->save();
                     FormulirMaster::akrata(Yii::$app->session['idFB'], 'FG');
-                    //$this->layout = "mainEntri";
                     return $this->redirect(['formulir-master/view', 'id' => $idfb]);
                 } else {
-                    $this->layout = "mainEntri";
+                   
                     return $this->render('create', [
                                 'model' => $model,
                                 'modelUser' => $modelUser,
@@ -271,13 +263,11 @@ class FormulirController extends Controller {
             $idfb = Yii::$app->session['idFB'];
             $this->findModel($id)->delete();
             FormulirMaster::akrata(Yii::$app->session['idFB'], 'FG');
-            $this->layout = "mainEntri";
             return $this->redirect(['createold', 'id' => $idfb]);
         } else {
             $idfb = Yii::$app->session['idFB'];
             $this->findModel($id)->delete();
             FormulirMaster::akrata(Yii::$app->session['idFB'], 'FG');
-            $this->layout = "mainEntri";
             return $this->redirect(['formulir-master/view', 'id' => $idfb]);
         }
     }

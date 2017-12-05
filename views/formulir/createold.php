@@ -13,83 +13,69 @@ $this->title = Yii::t('app', 'Formulir SKP');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Formulirs'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="formulir-create">
-    <div class="col-lg-12 alert alert-info text-center">
-        <h3><strong>Selamat Datang</strong></h3>
-        <h4><strong>Berikut ini adalah halaman Pengukuran SKP</strong></h4>
-    </div>
-    <div class="col-lg-6">
-        <?=
-        DetailView::widget([
-            'model' => $modelUser,
-            'attributes' =>
-            [
-                [
-                    'attribute' => 'idUser0.idGolongan0.KodeGolongan',
-                    'label' => 'Golongan',
-                    'contentOptions' => ['class' => 'col-lg-8'],
-                // 'format'=>['decimal',2]
-                ],
-                // 'UnitKerja',
-                [
-                    'attribute' => 'idUser0.idJabatan.NamaJabatan',
-                    'label' => 'Jabatan',
-                    'contentOptions' => ['class' => 'col-lg-8'],
-                ],
-                [
-                    'attribute' => 'idUser0.UnitKerja',
-                    'label' => 'Unit Kerja',
-                    'contentOptions' => ['class' => 'col-lg-8'],
-                ],
-            ],
-        ])
-        ?>
-    </div>
 
-    <div class="col-lg-6">
-        <?=
-        DetailView::widget([
-            'model' => $modelUser,
-            'attributes' =>
-            [
-                [
-                    'attribute' => 'idUser0.NIP',
-                    'label' => 'NIP',
-                    'contentOptions' => ['class' => 'col-lg-8'],
-                ],
+<div class="panel panel-warning">
+    <div class="panel-heading">Selamat Datang - Pengukuran SKP</div>
+    <div class="panel-body">
+        <div class="col-lg-6">
+            <?=
+            DetailView::widget([
+                'model' => $modelUser,
                 'attributes' =>
                 [
-                    'attribute' => 'idUser0.Nama',
-                    'label' => 'Nama',
-                    'contentOptions' => ['class' => 'col-lg-8'],
+                    [
+                        'attribute' => 'idUser0.idGolongan0.KodeGolongan',
+                        'label' => 'Golongan',
+                        'contentOptions' => ['class' => 'col-lg-8'],
+                    // 'format'=>['decimal',2]
+                    ],
+                    // 'UnitKerja',
+                    [
+                        'attribute' => 'idUser0.idJabatan.NamaJabatan',
+                        'label' => 'Jabatan',
+                        'contentOptions' => ['class' => 'col-lg-8'],
+                    ],
+                    [
+                        'attribute' => 'idUser0.UnitKerja',
+                        'label' => 'Unit Kerja',
+                        'contentOptions' => ['class' => 'col-lg-8'],
+                    ],
                 ],
-                [
-                    'attribute' => 'idUser0.Agama',
-                    'label' => 'Agama',
-                    'contentOptions' => ['class' => 'col-lg-8'],
-                ],
-            ],
-        ])
-        ?>
-    </div>
-
-    <!--    <div class="col-lg-12">
-            <h5 class="alert alert-success"><strong>TARGET PENCAPAIAN</strong></h5>
-        </div>-->
-
-    <?php
-//$this->render('_form', [
-//    'model' => $model,
-//])
-    ?>
-
-
-    <div class="col-lg-12">
-        <div class="col-lg-12">
-            <h5 class="alert alert-success"><strong>UNSUR UTAMA</strong></h5>
+            ])
+            ?>
         </div>
 
-        <table class="table table-bordered table-striped">
+        <div class="col-lg-6">
+            <?=
+            DetailView::widget([
+                'model' => $modelUser,
+                'attributes' =>
+                [
+                    [
+                        'attribute' => 'idUser0.NIP',
+                        'label' => 'NIP',
+                        'contentOptions' => ['class' => 'col-lg-8'],
+                    ],
+                    'attributes' =>
+                    [
+                        'attribute' => 'idUser0.Nama',
+                        'label' => 'Nama',
+                        'contentOptions' => ['class' => 'col-lg-8'],
+                    ],
+                    [
+                        'attribute' => 'idUser0.Agama',
+                        'label' => 'Agama',
+                        'contentOptions' => ['class' => 'col-lg-8'],
+                    ],
+                ],
+            ])
+            ?>
+        </div>
+    </div>
+</div>
+<div class="panel panel-danger">
+    <div class="panel-heading">UNSUR UTAMA</div>
+    <div class="panel-body">  <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <td class="text-center">No</td>
@@ -116,7 +102,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 echo "<td class='text-center'>" . $form['Waktu'] . "</td>";
                 echo "<td class='text-center'>" . $form['Biaya'] . "</td>";
                 echo "<td class='text-center'>";
-                echo Html::a('<i class="glyphicon glyphicon-pencil"></i>',['formulir/update','id'=>$form['IdFormulir']]);
+                echo Html::a('<i class="glyphicon glyphicon-pencil"></i>', ['formulir/update', 'id' => $form['IdFormulir']]);
                 //echo Html::a('<i class="glyphicon glyphicon-trash"></i>', ['formulir/delete', 'id' => $form['IdFormulir']], ['onclick' => 'return(confirm("apakah mau dihapus?")?true:false);', 'data-method' => 'post']);
                 echo "</td>";
                 echo "</tr>";
@@ -124,11 +110,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
         </table>
     </div>
+</div>
 
-    <div class="col-lg-12">
-        <div class="col-lg-12">
-            <h5 class="alert alert-success"><strong>UNSUR PENUNJANG</strong></h5>
-        </div>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">UNSUR PENUNJANG</div>
+    <div class="panel-body">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -140,7 +127,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <td class="text-center">Kualitas/Mutu</td>
                     <td class="text-center">Waktu</td>
                     <td class="text-center">Biaya</td>
-                   
+
                 </tr>
             </thead>
             <?php
@@ -156,7 +143,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 echo "<td class='text-center'>" . $form['Waktu'] . "</td>";
                 echo "<td class='text-center'>" . $form['Biaya'] . "</td>";
                 echo "<td class='text-center'>";
-                echo Html::a('<i class="glyphicon glyphicon-pencil"></i>',['formulir/update','id'=>$form['IdFormulir']]);
+                echo Html::a('<i class="glyphicon glyphicon-pencil"></i>', ['formulir/update', 'id' => $form['IdFormulir']]);
                 //echo  Html::a('<i class="glyphicon glyphicon-trash"></i>', ['formulir/delete', 'id' => $form['IdFormulir']], ['onclick' => 'return(confirm("apakah mau dihapus?")?true:false);', 'data-method' => 'post']);
                 echo "</td>";
                 echo "</tr>";
@@ -164,46 +151,42 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
         </table>
     </div>
+</div>
 
-    <div class="col-lg-12">
-        <h5 class="alert alert-danger"><strong>PENILAIAN KEPALA SEKOLAH</strong></h5>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">PENILAIAN KEPALA SEKOLAH</div>
+    <div class="panel-body">
+        <p>
+            <?php
+            if (Yii::$app->session['idFB'] != "") {
+                $rata = FormulirMaster::akrata(Yii::$app->session['idFB'], 'FG');
+                if ($rata == "") {
+                    $rata = 0;
+                }
+                $rataUkur = FormulirMaster::akrata(Yii::$app->session['idFB'], 'FK');
+                if ($rata == "") {
+                    $rata = 0;
+                }
+                $idKriteria = FormulirMaster::pilihid(Yii::$app->session['idFB']);
+                $namaKriteria = FormulirMaster::namakriteria($idKriteria);
+                $totalrata = "Jumlah Angka Kredit Sebelumnya : $rata setelah diubah : ";
+                echo "<h4>Kriteria Pilihan adalah : <strong>$namaKriteria</strong>, ";
+                echo $totalrata;
+                echo $jml != '' ? 0 : $rataUkur;
+                echo "</h4>";
+            } else {
+                $pilihanKriteria = "Kriteria Belum Dipilih";
+            }
+            echo $content;
+            ?>
+        </p>
     </div>
-
-    <p>
-        <?php
-        if (Yii::$app->session['idFB'] != "") {
-            $rata = FormulirMaster::akrata(Yii::$app->session['idFB'],'FG');
-            if ($rata == "") {
-                $rata = 0;
-            }
-            $rataUkur = FormulirMaster::akrata(Yii::$app->session['idFB'],'FK');
-            if ($rata == "") {
-                $rata = 0;
-            }
-            $idKriteria = FormulirMaster::pilihid(Yii::$app->session['idFB']);
-            $namaKriteria = FormulirMaster::namakriteria($idKriteria);
-            $totalrata = "Jumlah Angka Kredit Sebelumnya : $rata setelah diubah : ";
-            echo "<h4>Kriteria Pilihan adalah : <strong>$namaKriteria</strong>, ";
-            echo $totalrata;
-            echo $jml != '' ? 0 : $rataUkur;
-            echo "</h4>";
-        } else {
-            $pilihanKriteria = "Kriteria Belum Dipilih";
-        }
-        echo $content;
-        ?>
-    </p>
-    <?php
-//    $this->render('_formold', [
-//        'model' => $model,
-//    ])
-    ?>
-    <div class="col-lg-12">
-        <div class="col-lg-12">
-            <h5 class="alert alert-warning"><strong>UNSUR UTAMA</strong></h5>
-        </div>
-
-        <table class="table table-bordered table-striped">
+</div>
+<div class="panel panel-warning">
+    <div class="panel-heading">UNSUR UTAMA</div>
+    <div class="panel-body">  <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <td class="text-center">No</td>
@@ -239,11 +222,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
         </table>
     </div>
+</div>
 
-    <div class="col-lg-12">
-        <div class="col-lg-12">
-            <h5 class="alert alert-warning"><strong>UNSUR PENUNJANG</strong></h5>
-        </div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">UNSUR PENUNJANG</div>
+    <div class="panel-body">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -271,7 +255,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 echo "<td class='text-center'>" . $form['Waktu'] . "</td>";
                 echo "<td class='text-center'>" . $form['Biaya'] . "</td>";
                 echo "<td class='text-center'>";
-//                echo Html::a('<i class="glyphicon glyphicon-pencil"></i>',['formulir/update','id'=>$form['IdFormulir']]);
                 echo Html::a('<i class="glyphicon glyphicon-trash"></i>', ['formulir/delete', 'id' => $form['IdFormulir']], ['onclick' => 'return(confirm("apakah mau dihapus?")?true:false);', 'data-method' => 'post']);
                 echo "</td>";
                 echo "</tr>";

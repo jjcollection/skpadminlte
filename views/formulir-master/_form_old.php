@@ -13,7 +13,6 @@ use yii\widgets\ActiveForm;
 /* @var $form ActiveForm */
 ?>
 
-<div class="formulir-form">
 
     <?php $form = ActiveForm::begin(); ?>
    
@@ -83,14 +82,3 @@ use yii\widgets\ActiveForm;
     </div>
     </div>
     <?php ActiveForm::end(); ?>
-</div>
-
-
-
-<?php
-//$script = <<< JS
-//    alert("Hi");
-//    
-//JS;
-//$this->registerJs($script);
-?>

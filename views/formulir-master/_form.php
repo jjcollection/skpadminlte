@@ -7,11 +7,14 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 ?>
-    <?php $form = ActiveForm::begin(); ?>
+  <div class="panel panel-primary">
+      <div class="panel-heading">Formulir Baru</div>
+      <div class="panel-body">
+          <?php $form = ActiveForm::begin(); ?>
 <div class="col-lg-6">
     <?=
     $form->field($model, 'tanggalBuat')->widget(DatePicker::className(), [
-        'name' => 'pilih tanggal',
+        'name' => 'Pilih Tanggal',
         'value' => date('Y-M-d', strtotime('+2 days')),
         'options' =>
         [
@@ -42,12 +45,15 @@ use yii\widgets\ActiveForm;
         ],
     ]);
     ?>
-    <label>Kriteria Pilihan anda</label>
+    <label>Pilihan Kriteria</label>
     <label class="form-control alert-danger" id="lbPilihan"><?= Yii::$app->session['nama'] ?></label>
     <div class="form-group">
 <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Simpan') : Yii::t('app', 'Ubah'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 </div>
-<div class="col-lg-6">
-</div>
+
 <?php ActiveForm::end(); ?>
+      </div>
+    </div>
+
+    

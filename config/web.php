@@ -6,27 +6,27 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'language'=>'id_ID',
+    'language' => 'id_ID',
     'controllerMap' => [
         'migrate' => [
             'class' => 'yii\console\controllers\MigrateController',
-            //'migrationTable' => 'backend_migration',
+        //'migrationTable' => 'backend_migration',
         ],
     ],
     'components' => [
-		'view' => [
-         'theme' => [
-             'pathMap' => [
-                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
-             ],
-         ],
-    ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                '@app/views' => '@app/themes/adminlte',
+//'@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+                ],
+            ],
+        ],
         'i18n' => [
-        'translations' => [
+            'translations' => [
                 'app*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@app/messages',
-                   
                     'sourceLanguage' => 'id',
                     'fileMap' => [
                         'app' => 'yii.php',
@@ -35,7 +35,6 @@ $config = [
                 ],
             ],
         ],
-        
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'vTYXwlvM2mzPGF8PLeWqeY6csUlBsc2O',
@@ -68,19 +67,17 @@ $config = [
             ],
         ],
         'authManager' => [
-                //'class'=>'yii\rbac\PhpManager',
-                'class' => 'yii\rbac\DbManager', // only support DbManager
-            'defaultRoles' => ['guest'],
+            //'class'=>'yii\rbac\PhpManager',
+            'class' => 'yii\rbac\DbManager', // only support DbManager
+           // 'defaultRoles' => ['guest'],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        
     ],
     'params' => $params,
 ];
@@ -90,15 +87,15 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+            // uncomment the following to add your IP if you are not connecting from localhost.
+            //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+            // uncomment the following to add your IP if you are not connecting from localhost.
+            //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 }
 
